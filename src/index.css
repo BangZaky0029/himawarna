@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 /* Custom styles */
-.himawarna-text-gradient {
+/* Gradient khusus text */
+.text-gradient-himawarna {
   background: linear-gradient(to right, #2563eb, #9333ea, #db2777, #eab308);
-  -webkit-background-clip: text; /* Safari / Chrome */
-  -webkit-text-fill-color: transparent; /* Safari / Chrome */
-  background-clip: text; /* Standard property for other browsers */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

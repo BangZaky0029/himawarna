@@ -2,17 +2,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroProjects } from './HeroProjects';
+import { CONTACT_INFO } from '../constants';
 
 interface HeroProps {
   onShowProjects: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onShowProjects }) => {
+  // Link WhatsApp untuk Konsultasi Gratis
+  const waLinkKonsultasi = `https://wa.me/62${CONTACT_INFO.phone.substring(1)}?text=Halo%20HIMAWARNA,%20saya%20ingin%20konsultasi%20mengenai%20rencana%20pemasangan%20epoxy/lapangan%20di%20lokasi%20saya.`;
+
   return (
     <section id="about" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className="w-full lg:w-1/2 z-10">
+          <div className="w-full lg:w-1/2 z-10 text-center lg:text-left">
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -34,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({ onShowProjects }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed"
+              className="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
               Transformasi lantai industri dan lapangan olahraga Anda dengan teknologi coating termutakhir. Kuat, tahan lama, dan berestetika tinggi.
             </motion.p>
@@ -42,11 +46,13 @@ export const Hero: React.FC<HeroProps> = ({ onShowProjects }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap justify-center lg:justify-start gap-4"
             >
               <a 
-                href="#contact" 
-                className="px-8 py-4 rounded-full text-white font-bold himawarna-gradient hover:scale-105 transition-transform shadow-xl shadow-blue-200"
+                href={waLinkKonsultasi}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-full text-white font-bold text-gradient-himawarna hover:scale-105 transition-transform shadow-xl shadow-blue-200"
               >
                 Konsultasi Gratis
               </a>
