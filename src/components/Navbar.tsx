@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, isGalleryView }) => 
       setTimeout(() => {
         const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 150);
     } else {
       const element = document.getElementById(id);
       element?.scrollIntoView({ behavior: 'smooth' });
@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, isGalleryView }) => 
   const waLinkFreeSurvey = `https://wa.me/62${CONTACT_INFO.phone.substring(1)}?text=Halo%20HIMAWARNA,%20saya%20tertarik%20dengan%20layanan%20Anda%20dan%20ingin%20mengajukan%20Free%20Survey%20lokasi.`;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isGalleryView ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${isScrolled || isGalleryView ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
@@ -69,6 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, isGalleryView }) => 
             </button>
           </div>
 
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
@@ -97,51 +98,63 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, isGalleryView }) => 
             </a>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden p-2 text-slate-900" 
+            className="md:hidden p-2 text-slate-900 rounded-xl hover:bg-slate-100 transition-colors" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
         </div>
       </div>
 
+      {/* Mobile Nav Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-slate-100 overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {NAV_LINKS.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  className="text-lg font-bold text-slate-800 py-2 border-b border-slate-50"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                >
-                  {link.name}
-                </a>
-              ))}
+            <div className="container mx-auto px-6 py-8 flex flex-col gap-2">
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.href.replace('#', '');
+                return (
+                  <a 
+                    key={link.name} 
+                    href={link.href} 
+                    className={`text-lg font-black py-3 px-4 rounded-2xl transition-all flex items-center justify-between ${isActive ? 'bg-slate-50 text-blue-600' : 'text-slate-800 hover:bg-slate-50'}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(link.href);
+                    }}
+                  >
+                    {link.name}
+                    {isActive && <div className="w-2 h-2 rounded-full himawarna-gradient" />}
+                  </a>
+                );
+              })}
+              <div className="h-px bg-slate-100 my-4" />
               <a 
                 href={waLinkFreeSurvey}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-4 rounded-xl text-white font-bold himawarna-gradient shadow-lg mt-2"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-5 rounded-2xl text-white font-black himawarna-gradient shadow-xl hover:scale-[1.02] transition-transform active:scale-95"
               >
                 Free Survey
               </a>
+              <div className="flex justify-center gap-6 mt-6 opacity-40">
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">HIMAWARNA Professional Services</p>
+              </div>
             </div>
           </motion.div>
         )}

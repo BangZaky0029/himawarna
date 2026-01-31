@@ -1,3 +1,4 @@
+
 export const COLORS = {
   blue: '#2563eb',
   purple: '#9333ea',
@@ -53,7 +54,7 @@ export const SERVICES_DATA = [
     id: '3',
     title: 'Coating Beton',
     description: 'Perlindungan permukaan beton dari abrasi dan debu untuk estetika industrial modern.',
-    bgImage: 'https://images.unsplash.com/photo-1590674867571-87de5373656d?q=80&w=800&auto=format&fit=crop',
+    bgImage: 'https://pgnzanapfjrkyvtahgmj.supabase.co/storage/v1/object/public/himawarna/assets/projects/Parkiran_Basement_DPRD_Kota_Bogor/Basement_01.webp',
     waMessage: 'Halo HIMAWARNA, saya memerlukan jasa *Coating Beton* untuk area parkir/gudang saya. Mohon infonya.',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +66,7 @@ export const SERVICES_DATA = [
     id: '4',
     title: 'Perawatan',
     description: 'Layanan maintenance berkala untuk menjaga performa dan kilau lantai epoxy Anda.',
-    bgImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop',
+    bgImage: 'https://pgnzanapfjrkyvtahgmj.supabase.co/storage/v1/object/public/himawarna/assets/projects/Lapangan_Tennis_Pemda_Cibinong/Tennis_Pemda_01.webp',
     waMessage: 'Halo HIMAWARNA, saya ingin melakukan *Perawatan Lantai* yang sudah ada. Apakah bisa dijadwalkan survey?',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

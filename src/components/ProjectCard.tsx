@@ -6,9 +6,10 @@ import type { Project } from '../types';
 interface ProjectCardProps {
   project: Project;
   layout?: boolean;
+  onClick?: (project: Project) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, layout = true }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, layout = true, onClick }) => {
   return (
     <motion.div
       layout={layout}
@@ -16,7 +17,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, layout = true
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
-      className="group relative h-80 rounded-[32px] overflow-hidden shadow-lg bg-slate-100"
+      onClick={() => onClick?.(project)}
+      className="group relative h-80 rounded-[32px] overflow-hidden shadow-lg bg-slate-100 cursor-pointer"
     >
       <img
         src={project.image_url}

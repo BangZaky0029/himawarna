@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import type { Project } from '../types';
 import { ProjectCard } from './ProjectCard';
+import { ProjectModal } from './ProjectModal';
 
 interface ProjectsProps {
   onSeeMore: () => void;
@@ -13,6 +14,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSeeMore }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [filter, setFilter] = useState('All');
   const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   const filterOptions = [
     { label: 'Semua', value: 'All' },
@@ -85,7 +87,11 @@ export const Projects: React.FC<ProjectsProps> = ({ onSeeMore }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  onClick={(p) => setSelectedProject(p)} 
+                />
               ))}
             </AnimatePresence>
           </div>
@@ -100,6 +106,12 @@ export const Projects: React.FC<ProjectsProps> = ({ onSeeMore }) => {
           </button>
         </div>
       </div>
+
+      {/* Project Detail Pop-up */}
+      <ProjectModal 
+        project={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </section>
   );
 };

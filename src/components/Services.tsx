@@ -59,16 +59,14 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 className="group cursor-pointer relative p-10 rounded-[40px] border border-slate-100 bg-white hover:shadow-[0_40px_80px_-20px_rgba(37,99,235,0.2)] hover:-translate-y-3 transition-all duration-500 overflow-hidden"
               >
                 {/* Hover Background Image Overlay */}
-                {service.bgImage && (
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
-                    <img 
-                      src={service.bgImage} 
-                      alt="" 
-                      className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700" 
-                    />
-                    <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
-                  </div>
-                )}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
+                  <img 
+                    src={service.bgImage} 
+                    alt="" 
+                    className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+                </div>
 
                 {/* Animated Icon Container */}
                 <div className="relative mb-8">
@@ -90,9 +88,9 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent card navigation
+                      e.stopPropagation(); // Prevent card navigation to detail view, go to WA instead
                     }}
-                    className="inline-flex items-center gap-2 text-blue-600 font-black text-xs uppercase tracking-widest group/btn py-2"
+                    className="inline-flex items-center gap-2 text-blue-600 font-black text-xs uppercase tracking-widest group/btn py-2 hover:translate-x-1 transition-transform"
                   >
                     Pelajari Selengkapnya
                     <svg className="w-5 h-5 transition-transform group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

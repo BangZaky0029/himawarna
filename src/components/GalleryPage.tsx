@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { supabase } from '../lib/supabase';
 import type { Project } from '../types';
 import { ProjectCard } from './ProjectCard';
+import { ProjectModal } from './ProjectModal';
 
 interface GalleryPageProps {
   onBack: () => void;
@@ -13,6 +14,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onBack }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [filter, setFilter] = useState('All');
   const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterOptions = [
     { label: 'Semua Proyek', value: 'All' },
@@ -85,7 +87,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onBack }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard 
+                  key={project.id} 
+                  project={project} 
+                  onClick={(p) => setSelectedProject(p)} 
+                />
               ))}
             </AnimatePresence>
           </div>
@@ -102,6 +108,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onBack }) => {
           </div>
         )}
       </div>
+
+      <ProjectModal 
+        project={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </div>
   );
 };
