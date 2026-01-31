@@ -7,11 +7,15 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const scrollTo = (id: string) => {
+  const scrollToSection = (id: string) => {
+    // If not on main view, navigate back first
     onNavigate('main');
     setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
   };
 
   return (
@@ -24,7 +28,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('main')} 
               className="mb-8 bg-transparent border-none text-left flex items-center group"
             >
-              {/* Logo tampil dengan warna asli (tanpa filter invert/brightness) */}
               <img 
                 src="/full_logo_01.png" 
                 alt="HIMAWARNA Logo" 
@@ -85,10 +88,38 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h4 className="text-white font-bold text-lg mb-8 uppercase tracking-widest">Menu Cepat</h4>
             <ul className="space-y-4">
-              <li><button onClick={() => scrollTo('about')} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium">Tentang Kami</button></li>
-              <li><button onClick={() => scrollTo('services')} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium">Layanan</button></li>
-              <li><button onClick={() => onNavigate('gallery')} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium">Galeri Proyek</button></li>
-              <li><button onClick={() => scrollTo('contact')} className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium">Hubungi Kami</button></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('about')} 
+                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium text-left w-full"
+                >
+                  Tentang Kami
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium text-left w-full"
+                >
+                  Layanan
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate('gallery')} 
+                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium text-left w-full"
+                >
+                  Galeri Proyek
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('contact')} 
+                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all bg-transparent border-none font-medium text-left w-full"
+                >
+                  Hubungi Kami
+                </button>
+              </li>
             </ul>
           </div>
         </div>

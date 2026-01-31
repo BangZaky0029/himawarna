@@ -14,7 +14,6 @@ export const Projects: React.FC<ProjectsProps> = ({ onSeeMore }) => {
   const [filter, setFilter] = useState('All');
   const [loading, setLoading] = useState(true);
   
-  // Adjusted to match actual database values: 'epoxy', 'lapangan'
   const filterOptions = [
     { label: 'Semua', value: 'All' },
     { label: 'Epoxy', value: 'epoxy' },

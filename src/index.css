@@ -2,11 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
-/* Gradient khusus text */
-.text-gradient-himawarna {
-  background: linear-gradient(to right, #2563eb, #9333ea, #db2777, #eab308);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Background Gradient */
+.himawarna-gradient {
+  background: linear-gradient(135deg, #2563eb, #9333ea, #db2777, #eab308);
+}
+
+/* Text Gradient */
+.himawarna-text-gradient {
+  background: linear-gradient(135deg, #2563eb, #9333ea, #db2777, #eab308);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+}
+
+/* Hover effects for buttons */
+.btn-hover-gradient:hover {
+  background-size: 200% 200%;
+  animation: gradient-move 3s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

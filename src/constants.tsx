@@ -1,6 +1,3 @@
-
-import React from 'react';
-
 export const COLORS = {
   blue: '#2563eb',
   purple: '#9333ea',
@@ -31,9 +28,11 @@ export const SERVICES_DATA = [
     id: '1',
     title: 'Epoxy Lantai',
     description: 'Solusi lantai industrial tahan kimia, anti-slip, dan sangat awet untuk pabrik atau gudang.',
+    bgImage: 'https://pgnzanapfjrkyvtahgmj.supabase.co/storage/v1/object/public/himawarna/assets/projects/PT_MOTTO_GN_Putri/PT_MOTTO_01.webp',
+    waMessage: 'Halo HIMAWARNA, saya tertarik dengan layanan *Epoxy Lantai*. Bisa tolong jelaskan estimasi harga dan proses pengerjaannya?',
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     )
   },
@@ -41,10 +40,12 @@ export const SERVICES_DATA = [
     id: '2',
     title: 'Lapangan Olahraga',
     description: 'Aplikasi coating lapangan basket, tenis, dan futsal dengan standar grip internasional.',
+    bgImage: 'https://pgnzanapfjrkyvtahgmj.supabase.co/storage/v1/object/public/himawarna/assets/projects/Lapangan_BPJS_Kesehatan_Cisarua/Lapangan_BPJS_01.webp',
+    waMessage: 'Halo HIMAWARNA, saya ingin bertanya tentang pembuatan *Lapangan Olahraga*. Berapa lama waktu pengerjaannya?',
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     )
   },
@@ -52,9 +53,11 @@ export const SERVICES_DATA = [
     id: '3',
     title: 'Coating Beton',
     description: 'Perlindungan permukaan beton dari abrasi dan debu untuk estetika industrial modern.',
+    bgImage: 'https://images.unsplash.com/photo-1590674867571-87de5373656d?q=80&w=800&auto=format&fit=crop',
+    waMessage: 'Halo HIMAWARNA, saya memerlukan jasa *Coating Beton* untuk area parkir/gudang saya. Mohon infonya.',
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
       </svg>
     )
   },
@@ -62,9 +65,11 @@ export const SERVICES_DATA = [
     id: '4',
     title: 'Perawatan',
     description: 'Layanan maintenance berkala untuk menjaga performa dan kilau lantai epoxy Anda.',
+    bgImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop',
+    waMessage: 'Halo HIMAWARNA, saya ingin melakukan *Perawatan Lantai* yang sudah ada. Apakah bisa dijadwalkan survey?',
     icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     )
   }
@@ -111,19 +116,4 @@ export const EXPERTISE_DATA = [
       </svg>
     )
   }
-];
-
-export const PROJECTS_DATA = [
-  { id: '1', title: 'Epoxy Lantai Pabrik Makanan', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop' },
-  { id: '2', title: 'Gudang Logistik Modern', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop' },
-  { id: '3', title: 'Lapangan Basket Outdoor', category: 'Sport', imageUrl: 'https://images.unsplash.com/photo-1544919982-b61976f0ba43?q=80&w=800&auto=format&fit=crop' },
-  { id: '4', title: 'Area Parkir Mall', category: 'Commercial', imageUrl: 'https://images.unsplash.com/photo-1590674867571-87de5373656d?q=80&w=800&auto=format&fit=crop' },
-  { id: '5', title: 'Coating Showroom Otomotif', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?q=80&w=800&auto=format&fit=crop' },
-  { id: '6', title: 'Lapangan Tenis Pro', category: 'Sport', imageUrl: 'https://images.unsplash.com/photo-1595435064212-36aaec793132?q=80&w=800&auto=format&fit=crop' },
-  { id: '7', title: 'Lantai Warehouse Farmasi', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=800&auto=format&fit=crop' },
-  { id: '8', title: 'Lapangan Futsal Indoor', category: 'Sport', imageUrl: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800&auto=format&fit=crop' },
-  { id: '9', title: 'Area Loading Dock', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=800&auto=format&fit=crop' },
-  { id: '10', title: 'Lobby Kantor Premium', category: 'Commercial', imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop' },
-  { id: '11', title: 'Gelanggang Olahraga', category: 'Sport', imageUrl: 'https://images.unsplash.com/photo-1519861531473-920036214751?q=80&w=800&auto=format&fit=crop' },
-  { id: '12', title: 'Workshop Manufaktur', category: 'Industrial', imageUrl: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=800&auto=format&fit=crop' },
 ];

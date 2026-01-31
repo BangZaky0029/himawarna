@@ -25,7 +25,7 @@ export const Expertise: React.FC = () => {
               <span className="text-blue-600">Kualitas & Kepuasan</span>
             </motion.h2>
             <p className="text-lg text-slate-600 mb-12 leading-relaxed">
-              Kami memahami bahwa lantai bukan sekadar permukaan, tapi pondasi dari operasional bisnis Anda. Itulah mengapa kami tidak pernah berkompromi.
+              Kami memahami bahwa lantai bukan sekadar permukaan, tapi pondasi dari operasional bisnis Anda. Itulah mengapa kami tidak pernah berkompromi dengan hasil akhir.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
@@ -37,14 +37,13 @@ export const Expertise: React.FC = () => {
                   transition={{ delay: idx * 0.1 }}
                   className="flex gap-5"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl text-gradient-himawarna flex items-center justify-center shadow-lg shadow-blue-100 ring-4 ring-white">
-                    {/* Icons are white, background is gradient. If icon is still problematic, we can add a subtle shadow to it */}
-                    <div className="text-white drop-shadow-sm">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl himawarna-gradient flex items-center justify-center shadow-xl shadow-blue-100 ring-4 ring-white">
+                    <div className="text-white drop-shadow-md">
                       {item.icon}
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-900 mb-1">{item.title}</h4>
+                    <h4 className="font-black text-slate-900 mb-1 text-lg">{item.title}</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
@@ -53,15 +52,15 @@ export const Expertise: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/2 relative">
-            <div className="rounded-[48px] overflow-hidden shadow-2xl relative">
+            <div className="rounded-[48px] overflow-hidden shadow-2xl relative group">
               <img 
-                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" 
-                alt="Professional Team Work" 
-                className="w-full h-[500px] object-cover"
+                src="https://pgnzanapfjrkyvtahgmj.supabase.co/storage/v1/object/public/himawarna/assets/PT_MOTTO_GN_Putri/PT_MOTTO_03.webp" 
+                alt="Professional Industrial Coating Project" 
+                className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-blue-900/10 mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-blue-900/10 mix-blend-multiply transition-opacity group-hover:opacity-0"></div>
             </div>
-            {/* Experience Card Overlay */}
+            
             <motion.div 
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
