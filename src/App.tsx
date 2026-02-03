@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { BrandMarquee } from './components/BrandMarquee';
 import { Services } from './components/Services';
 import { Expertise } from './components/Expertise';
 import { Projects } from './components/Projects';
@@ -11,7 +12,7 @@ import { Footer } from './components/Footer';
 import { GalleryPage } from './components/GalleryPage';
 
 const LoadingScreen = () => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -24,14 +25,14 @@ const LoadingScreen = () => (
       className="flex flex-col items-center gap-6"
     >
       <img src="/icon_logo_03.PNG" alt="HIMAWARNA Icon" className="w-24 h-24 object-contain" />
-      
+
       {/* Animasi mengambang ke atas ke bawah untuk teks HIMAWARNA */}
-      <motion.h1 
+      <motion.h1
         animate={{ y: [0, -15, 0] }}
-        transition={{ 
-          duration: 2, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
         }}
         className="text-4xl md:text-5xl font-black tracking-widest text-slate-900"
       >
@@ -39,7 +40,7 @@ const LoadingScreen = () => (
       </motion.h1>
 
       <div className="w-24 h-1.5 bg-slate-100 rounded-full overflow-hidden mt-4">
-        <motion.div 
+        <motion.div
           initial={{ x: '-100%' }}
           animate={{ x: '100%' }}
           transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
@@ -57,7 +58,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); 
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -77,13 +78,14 @@ function App() {
         transition={{ duration: 1 }}
       >
         <Navbar onNavigate={(view) => setCurrentView(view)} isGalleryView={currentView === 'gallery'} />
-        
+
         {currentView === 'main' ? (
           <main>
             <Hero onShowProjects={() => {
               const el = document.getElementById('projects');
               el?.scrollIntoView({ behavior: 'smooth' });
             }} />
+            <BrandMarquee />
             <Services />
             <Expertise />
             <Projects onSeeMore={() => setCurrentView('gallery')} />
@@ -92,7 +94,7 @@ function App() {
         ) : (
           <GalleryPage onBack={() => setCurrentView('main')} />
         )}
-        
+
         <Footer onNavigate={(view) => setCurrentView(view)} />
       </motion.div>
     </div>

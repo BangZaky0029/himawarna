@@ -38,3 +38,10 @@ export interface ExpertiseItem {
   description: string;
   icon: React.ReactNode;
 }
+
+export interface Brand {
+  id: string;
+  name: string;
+  slug: string;
+  category: string;
+}
